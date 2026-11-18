@@ -1,0 +1,10 @@
+# HTTPS for the local network. Copy to "Caddyfile" and replace the address.
+# Set APP_ORIGIN=https://virementocr.lan in web/.env.local (same address, no trailing slash).
+#
+# Employees' PCs must resolve this name to the server (DNS or hosts file) and trust
+# Caddy's local root certificate, created by "caddy trust" on the server.
+
+virementocr.lan {
+	tls internal
+	reverse_proxy 127.0.0.1:3000
+}

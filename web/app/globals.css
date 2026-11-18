@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f6fb;
+  --foreground: #0f172a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Subtle dotted grid used behind the hero */
+.bg-grid {
+  background-image: radial-gradient(rgb(15 23 42 / 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Animated gradient border for the dropzone while dragging */
+@keyframes border-spin {
+  to {
+    --angle: 360deg;
+  }
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.gradient-ring {
+  background:
+    linear-gradient(white, white) padding-box,
+    conic-gradient(from var(--angle), #6366f1, #06b6d4, #10b981, #a855f7, #6366f1) border-box;
+  animation: border-spin 3s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-ring {
+    animation: none;
+  }
+}

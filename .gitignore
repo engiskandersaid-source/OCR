@@ -1,0 +1,11 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Browser test output (screenshots and page snapshots)
+.playwright-mcp/
+
+# Local configuration
+Caddyfile
+.claude/settings.local.json
